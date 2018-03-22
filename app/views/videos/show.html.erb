@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>File data:</strong>
+  <%= @video.file_data %>
+</p>
+
+<video id="my-video" class="video-js " controls preload="auto" width="640" height="264">
+  <source src="<%= @video.file[:video].url %>">
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+</video>
+
+<%= link_to 'Edit', edit_video_path(@video) %>
+|
+<%= link_to 'Back', videos_path %>
+
+<script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
+<script src="//cdn.rawgit.com/erasche/videojs-framebyframe/c9dd2b6bf0e7b527aa505d0e9e19ffe756eb1ee5/video-framebyframe.js"></script>
+
+<script type='text/javascript'>
+    var video = videojs("my-video", {
+      controls: true,
+      autoplay: true,
+      preload: 'auto',
+      plugins: {
+        framebyframe: {
+          fps: 23.98,
+          steps: [
+            { text: '< -5', step: -5 },
+            { text: '< -1', step: -1 },
+            { text: 'Frame' },
+            { text: '+1 >', step: 1 },
+            { text: '5 >', step: 5 },
+          ]
+        }
+      }
+    });
+  </script>

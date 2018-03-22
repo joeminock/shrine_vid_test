@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShrineVid</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//vjs.zencdn.net/5.7.1/video-js.css" rel="stylesheet">
+   <script src="//vjs.zencdn.net/5.7.1/video.js"></script>
+   <script src="//cdn.rawgit.com/erasche/videojs-framebyframe/c9dd2b6bf0e7b527aa505d0e9e19ffe756eb1ee5/video-framebyframe.js"></script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
